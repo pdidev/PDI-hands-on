@@ -2,43 +2,54 @@
 
 # Setup
 
-\warning
-You need to [install](Installation.html) %PDI before proceeding with this
-tutorial.
-
-After %PDI [is installed](Installation.html), you can proceed with getting
-the sources for the hands-on tutorial from
-[github](https://github.com/pdidev/tutorial).
-
+At first get the sources for the hands-on tutorial from [github](https://github.com/pdidev/tutorial).
 ```bash
 git clone https://github.com/pdidev/tutorial.git
 ```
 
-Before compilation, configure the tutorial by detecting all dependencies:
+Go to the `tutorial` folder. It will be our main directory for all our exercises.
 ```bash
 cd tutorial
+```
+
+The tutorial can be run in two ways: 
+- by using the docker
+- by installing PDI library and running exercises manually
+
+## Using Docker 
+
+\warning
+If you do not have Docker installed you can get all informations [here]().
+
+After making changes in `source` or `yaml` files put the following command to run exercise and check if it is done correctly.
+```bash
+sh docker_run.sh ex1
+```
+\warning
+In place of `ex1` put the name of wanted exercise (`ex3` for exercise 3 etc.)
+
+## Using installed PDI
+
+\warning
+If you do not have PDI installed you can get all informations [here](Installation.html).
+
+Before compilation, configure the tutorial by detecting all dependencies:
+```bash
 pdirun cmake .
 ```
+
+For each exercise, once you've modified it, you can compile it by running the
+following command:
+```bashPDI
+/bin/bash run.sh ex1
+```
+\warning
+In place of `ex1` put the name of wanted exercise (`ex3` for exercise 3 etc.)
 
 Now you're ready to work, **good luck**!
 
 
 # Tutorial
-
-For each exercise, once you've modified it, you can compile it by running the
-following command:
-```bashPDI
-Ex4. Writing some real data
-make ex?
-```
-Where `?` is the number of the exercise.
-
-Then, you can run it with the following command:
-```bash
-pdirun mpirun -n 1 ./ex?
-```
-Where `?` is again the number of the exercise.
-
 
 ## Ex1. Getting started
 
@@ -285,6 +296,9 @@ Try to match the output from `ex9.out`, that should be independent from the
 number of processes used.
 
 Touch only the yaml file in this exercise.
+
+\attention
+Number of processes can be changed by using second argument in the script (`sh docker_run.sh ex1 3` will run 3 processes etc.).
 
 Here is graphical representation of the parallel I/O:
 

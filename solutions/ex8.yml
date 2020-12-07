@@ -15,7 +15,7 @@ pdi:
     main_field: { type: array, subtype: double, size: [ '$dsize[0]', '$dsize[1]' ] }
   plugins:
     decl_hdf5:
-      file: ex7-data${pcoord[0]}x${pcoord[1]}.h5
+      file: ex8-data${pcoord[0]}x${pcoord[1]}.h5
       datasets:
         main_field: { type: array, subtype: double, size: [ 3, '$dsize[0]-2', '$dsize[1]-2' ] }
       write:
